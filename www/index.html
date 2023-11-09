@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -9,15 +10,20 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="keys.js"></script>
     <script>
-        let ncmb= new NCMB(appKey, clientKey); 
-        let TestClass= ncmb.DataStore("RegisterTest2"); 
-        let testRecord= new TestClass(); 
-        testRecord.set("message2", "hello, world"); 
-        testRecord.save();
+        let ncmb = new NCMB(appKey, clientKey);
+        let TestClass = ncmb.DataStore("RegisterTest2");
+        let testRecord = new TestClass();
+        testRecord.set("message2", "hello, world");
+        testRecord.save().then(function(m) {
+            alert("success:" + JSON.stringify(m));
+        }).catch(function(m) {
+            alert("fail:" + JSON.stringify(m));
+        });
     </script>
 </head>
+
 <body>
-	<br />
-    This is a template for Monaca app.
+    <br /> This is a template for Monaca app.
 </body>
+
 </html>
